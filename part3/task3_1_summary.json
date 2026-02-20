@@ -1,0 +1,17 @@
+{
+  "config": "/content/drive/MyDrive/AISE/part3/task3_1_elasticity.json",
+  "database": "/content/drive/MyDrive/AISE/part3/task3_1_output/elasticity.csv",
+  "relative_error_l1": 0.015271102078258991,
+  "training_time_sec": 13158.988073825836,
+  "token_count": 1024,
+  "token_count_used": 1024,
+  "token_count_transformer": 1024,
+  "tokens_latent": 4096,
+  "tokens_patches": 1024,
+  "latent_tokens_size": [
+    64,
+    64
+  ],
+  "patch_size": 2,
+  "tokenization_strategy": "grid"
+}

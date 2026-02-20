@@ -1,0 +1,70 @@
+{
+  "setup": {
+    "seed": 42,
+    "device": "cuda:0",
+    "dtype": "torch.float32",
+    "trainer_name": "static",
+    "train": true,
+    "test": true,
+    "ckpt": false
+  },
+  "model": {
+    "name": "gaot",
+    "latent_tokens_size": [
+      16,
+      16
+    ],
+    "tokenization_strategy": "random",
+    "tokenization_seed": 42,
+    "tokenization_use_x_data": true,
+    "args": {
+      "magno": {
+        "coord_dim": 2,
+        "radius": 0.033,
+        "hidden_size": 64,
+        "mlp_layers": 3,
+        "lifting_channels": 64,
+        "neighbor_search_method": "chunked",
+        "precompute_edges": true,
+        "dynamic_radius": true,
+        "dynamic_radius_k": 8,
+        "dynamic_radius_alpha": 1.5
+      },
+      "transformer": {
+        "patch_size": 2,
+        "hidden_size": 256
+      }
+    }
+  },
+  "dataset": {
+    "name": "Elasticity",
+    "metaname": "elliptic_pdes/Elasticity",
+    "base_path": "..",
+    "train_size": 1024,
+    "val_size": 128,
+    "test_size": 256,
+    "batch_size": 64,
+    "num_workers": 2,
+    "shuffle": true
+  },
+  "optimizer": {
+    "name": "adamw",
+    "args": {
+      "lr": 0.0008,
+      "weight_decay": 1e-05,
+      "epoch": 1000,
+      "loss_scale": 1.0,
+      "eval_every_eps": 2,
+      "scheduler": "mix",
+      "max_lr": 0.001,
+      "min_lr": 0.0001,
+      "final_lr": 5e-05
+    }
+  },
+  "path": {
+    "ckpt_path": "../task3_2_output/elasticity.pt",
+    "loss_path": "../task3_2_output/elasticity_loss.png",
+    "result_path": "../task3_2_output/elasticity_result.png",
+    "database_path": "../task3_2_output/elasticity.csv"
+  }
+}
